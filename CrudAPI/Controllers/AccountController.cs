@@ -35,7 +35,7 @@ namespace CrudAPI.Controllers
         {
             _accountService.SignUp(request.Username, request.Password);
 
-            return NoContent();
+            return Ok();
         }
         [HttpPost("sign-in")]
         [AllowAnonymous]
@@ -52,7 +52,7 @@ namespace CrudAPI.Controllers
         {
             await _accountService.DeactivateCurrentAsync(User.Identity.Name);
 
-            return NoContent();
+            return Ok();
         }
         [AllowAnonymous]
         [HttpPost("tokens/cancel/{userid}")]
@@ -60,7 +60,7 @@ namespace CrudAPI.Controllers
         {
             await _accountService.DeactivateCurrentByIdAsync(userid);
 
-            return NoContent();
+            return Ok();
         }
     }
 }
